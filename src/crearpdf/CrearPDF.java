@@ -40,14 +40,21 @@ public class CrearPDF {
             // Se abre el documento.
             documento.open();
             //Añadir título
-            Paragraph titulo= new Paragraph("Clasificacion ATP",
+            Paragraph titulo = new Paragraph("Clasificacion ATP",
                     FontFactory.getFont("arial", // fuente
-                    22, // tamaño
-                    Font.ITALIC, // estilo
-                    BaseColor.BLUE)); // color
+                            22, // tamaño
+                            Font.ITALIC, // estilo
+                            BaseColor.BLUE)); // color
             titulo.setAlignment(Chunk.ALIGN_CENTER);
             documento.add(titulo);
-            
+            //Añadir una línea en blanco
+            documento.add(Chunk.NEWLINE);
+            //Añadir un párrafo
+            documento.add(new Paragraph(
+                    "El ranking ATP es una clasificación mundial de tenistas profesionales de la Asociación "
+                    + "de Tenistas Profesionales. Se actualiza cada semana y abarca los resultados de las últimas 52 semanas. "
+                    + "Se utiliza para seleccionar a los habilitados en cada torneo y a los cabezas de serie, el máximo galardón para "
+                    + "cualquier tenista es ser considerado entre los 5 mejores del mundo en el ranking ATP."));
             // Se cierra el documento
             documento.close();
         } catch (FileNotFoundException ex) {
